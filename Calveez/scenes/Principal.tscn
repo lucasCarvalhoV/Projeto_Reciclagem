@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgqurxrdwl6p5"]
+
+[ext_resource type="PackedScene" uid="uid://el4l5l0ei8a" path="res://scenes/personagem.tscn" id="1_fxbhk"]
+[ext_resource type="PackedScene" uid="uid://cbex0ttjavuai" path="res://scenes/chao.tscn" id="2_varu1"]
+
+[node name="Node" type="Node"]
+
+[node name="Personagem" parent="." instance=ExtResource("1_fxbhk")]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_varu1")]
