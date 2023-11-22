@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://e1b438t6jpc"]
+[gd_scene load_steps=11 format=3 uid="uid://e1b438t6jpc"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_mvi6h"]
 [ext_resource type="Texture2D" uid="uid://dhq31ao2wai3r" path="res://sprites/Garoto_animaçao-removebg-preview_editado.png" id="2_yasix"]
@@ -17,10 +17,6 @@ region = Rect2(249, 326, 83, 163)
 atlas = ExtResource("2_yasix")
 region = Rect2(332, 326, 83, 163)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0yrnt"]
-atlas = ExtResource("2_yasix")
-region = Rect2(0, 0, 83, 163)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1g1lt"]
 atlas = ExtResource("2_yasix")
 region = Rect2(83, 0, 83, 163)
@@ -32,14 +28,6 @@ region = Rect2(166, 0, 83, 163)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ex7k6"]
 atlas = ExtResource("2_yasix")
 region = Rect2(249, 0, 83, 163)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnr5h"]
-atlas = ExtResource("2_yasix")
-region = Rect2(332, 0, 83, 163)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6s2c3"]
-atlas = ExtResource("2_yasix")
-region = Rect2(415, 0, 83, 163)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a0tob"]
 animations = [{
@@ -53,14 +41,11 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_w4gkk")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0yrnt")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1g1lt")
 }, {
@@ -69,19 +54,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ex7k6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fnr5h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6s2c3")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 6.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-2, -14)
 collision_mask = 2
 script = ExtResource("1_mvi6h")
@@ -105,5 +84,4 @@ editor_draw_drag_margin = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_a0tob")
-animation = &"jump"
-frame_progress = 0.190338
+animation = &"walk"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://kyfwppq86n3k"]
+
+[ext_resource type="Texture2D" uid="uid://bo6k041diimsa" path="res://sprites/arcade_platformerV2.png" id="1_t44cg"]
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_yn8f7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7gay"]
+
+[node name="Moving_platform" type="Node2D"]
+script = ExtResource("1_yn8f7")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1_t44cg")
+region_enabled = true
+region_rect = Rect2(208, 48, 48, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+scale = Vector2(2.4, 0.8)
+shape = SubResource("RectangleShape2D_l7gay")
+one_way_collision = true
