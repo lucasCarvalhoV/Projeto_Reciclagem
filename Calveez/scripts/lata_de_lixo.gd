@@ -23,9 +23,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		if body.is_holding:
-			body.is_holding = false
-			if body.object_color == color:
-				print("Lata de Lixo certa")
-			else:
-				print("Lata de Lixo errada")
+		if body.collectedGarbage.size() > 0:
+			print("depositou")

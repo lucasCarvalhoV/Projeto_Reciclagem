@@ -1257,11 +1257,30 @@ cor = "azul"
 position = Vector2(227, 229)
 
 [node name="lata_de_lixo" parent="." instance=ExtResource("5_lx1g7")]
-position = Vector2(338, 501)
+position = Vector2(34, 500)
 color = "azul"
 
+[node name="lata_de_lixo2" parent="." instance=ExtResource("5_lx1g7")]
+position = Vector2(56, 500)
+
+[node name="lata_de_lixo3" parent="." instance=ExtResource("5_lx1g7")]
+position = Vector2(78, 500)
+color = "verde"
+
+[node name="lata_de_lixo4" parent="." instance=ExtResource("5_lx1g7")]
+position = Vector2(101, 500)
+color = "amarelo"
+
+[node name="lata_de_lixo5" parent="." instance=ExtResource("5_lx1g7")]
+position = Vector2(50, 163)
+color = "amarelo"
+
 [node name="player" parent="." instance=ExtResource("2_djorh")]
-position = Vector2(62, 497)
+position = Vector2(86, 147)
 
 [connection signal="body_entered" from="lixo" to="lixo" method="_on_body_entered"]
 [connection signal="body_entered" from="lata_de_lixo" to="lata_de_lixo" method="_on_body_entered"]
+[connection signal="body_entered" from="lata_de_lixo2" to="lata_de_lixo2" method="_on_body_entered"]
+[connection signal="body_entered" from="lata_de_lixo3" to="lata_de_lixo3" method="_on_body_entered"]
+[connection signal="body_entered" from="lata_de_lixo4" to="lata_de_lixo4" method="_on_body_entered"]
+[connection signal="body_entered" from="lata_de_lixo5" to="lata_de_lixo5" method="_on_body_entered"]

@@ -8,8 +8,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping = false
 @onready var anim = $AnimatedSprite2D
 
-var is_holding = false
-var object_color = null
+var collectedGarbage = []
+
+#var is_holding = false
+#var object_color = null
 
 func _physics_process(delta):
 	# Add the gravity.

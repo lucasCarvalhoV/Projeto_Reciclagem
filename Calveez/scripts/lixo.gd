@@ -11,16 +11,19 @@ func _ready():
 func _process(delta):
 	pass
 
-func pickble():
+func pick_garbage():
 	if visible == true:
 		print("pegou o lixo")
-		hide() #Coloca visible para false escondendo o nó
+		#queue_free() #Coloca visible para false escondendo o nó
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
-		if body.is_holding == false:
-			body.is_holding = true
-			body.object_color = cor
-			pickble()
+		if body.is_in_group("player"):
+			if body.collectedGarbage.size() < 6:
+				var tipo = "Lata";
+				body.collectedGarbage.append({"Cor": cor, "Tipo":tipo})
+				print(body.collectedGarbage)
+				pick_garbage()
+			else:
+				print("Seu saco ta cheio");
 
 
