@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnrnv53c0cifp"]
+
+[ext_resource type="Script" path="res://scenes/Vidas.gd" id="1_q1h61"]
+[ext_resource type="Texture2D" uid="uid://snydekcgyl48" path="res://sprites/Coracao.png" id="2_v3of1"]
+
+[node name="Vidas" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q1h61")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 489.0
+offset_bottom = 476.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_v3of1")
+
+[node name="Contador" type="Label" parent="."]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -13.0
+offset_right = 15.0
+offset_bottom = 13.0
+text = "04"
