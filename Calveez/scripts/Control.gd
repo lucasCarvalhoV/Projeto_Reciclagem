@@ -2,6 +2,7 @@ extends Control
 
 var cor_lata_de_lixo = "vermelho"
 var cor_lixos = []
+var player = null;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,7 +13,8 @@ func _process(delta):
 	pass
 
 
-func _on_lata_de_lixo_depositou_lixo(body,area):
+func _on_lata_de_lixo_depositou_lixo(body, area):
+	player = body;
 	cor_lata_de_lixo = area.color
 	if(visible == false):
 		show()
@@ -32,3 +34,4 @@ func _on_item_list_item_activated(index):
 	else:
 		print("Lata de Lixo Errada")
 	$ItemList.remove_item(index)
+	player.collectedGarbage.remove_at(index);
