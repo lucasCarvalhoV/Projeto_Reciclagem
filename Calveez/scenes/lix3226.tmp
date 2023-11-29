@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdbakqh1e6ea0"]
+
+[ext_resource type="Script" path="res://scripts/lixo.gd" id="1_xwykw"]
+[ext_resource type="Texture2D" uid="uid://d2fvihdjw081b" path="res://sprites/waterbottle.png" id="2_i6ktq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmhcd"]
+
+[node name="lixo" type="Area2D" groups=["coletáveis"]]
+collision_layer = 4
+script = ExtResource("1_xwykw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dmhcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 7)
+scale = Vector2(0.0547769, 0.0547769)
+texture = ExtResource("2_i6ktq")
