@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b40orsxryatls"]
+[gd_scene load_steps=9 format=3 uid="uid://b40orsxryatls"]
 
 [ext_resource type="Texture2D" uid="uid://bc4hfs7d7adhd" path="res://sprites/arcade.png" id="1_c735a"]
 [ext_resource type="PackedScene" uid="uid://e1b438t6jpc" path="res://scenes/player.tscn" id="2_djorh"]
 [ext_resource type="PackedScene" uid="uid://kyfwppq86n3k" path="res://prefabs/moving_platform.tscn" id="3_hfk1n"]
 [ext_resource type="PackedScene" uid="uid://bdbakqh1e6ea0" path="res://scenes/lixo.tscn" id="4_1ct73"]
 [ext_resource type="PackedScene" uid="uid://c5i332sv7vcrh" path="res://scenes/lata_de_lixo.tscn" id="5_lx1g7"]
+[ext_resource type="Script" path="res://scripts/Control.gd" id="6_eamem"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xalt3"]
 texture = ExtResource("1_c735a")
@@ -1230,7 +1231,7 @@ texture = ExtResource("1_c735a")
 physics_layer_0/collision_layer = 2
 sources/1 = SubResource("TileSetAtlasSource_xalt3")
 
-[node name="Node" type="Node"]
+[node name="Principal" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hidmd")
@@ -1253,6 +1254,18 @@ move_horizontal = false
 position = Vector2(210, 502)
 cor = "azul"
 
+[node name="lixo2" parent="." instance=ExtResource("4_1ct73")]
+position = Vector2(292, 503)
+cor = "vermelho"
+
+[node name="lixo3" parent="." instance=ExtResource("4_1ct73")]
+position = Vector2(343, 502)
+cor = "verde"
+
+[node name="lixo4" parent="." instance=ExtResource("4_1ct73")]
+position = Vector2(401, 503)
+cor = "amarelo"
+
 [node name="Moving_platform2" parent="." instance=ExtResource("3_hfk1n")]
 position = Vector2(227, 229)
 
@@ -1272,15 +1285,43 @@ position = Vector2(101, 500)
 color = "amarelo"
 
 [node name="lata_de_lixo5" parent="." instance=ExtResource("5_lx1g7")]
-position = Vector2(50, 163)
+position = Vector2(65, 164)
 color = "amarelo"
 
 [node name="player" parent="." instance=ExtResource("2_djorh")]
-position = Vector2(86, 147)
+position = Vector2(182, 494)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 343.0
+offset_top = 30.0
+offset_right = 493.0
+offset_bottom = 180.0
+script = ExtResource("6_eamem")
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 10
 
 [connection signal="body_entered" from="lixo" to="lixo" method="_on_body_entered"]
+[connection signal="body_entered" from="lixo2" to="lixo2" method="_on_body_entered"]
+[connection signal="body_entered" from="lixo3" to="lixo3" method="_on_body_entered"]
+[connection signal="body_entered" from="lixo4" to="lixo4" method="_on_body_entered"]
 [connection signal="body_entered" from="lata_de_lixo" to="lata_de_lixo" method="_on_body_entered"]
+[connection signal="depositou_lixo" from="lata_de_lixo" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo2" to="lata_de_lixo2" method="_on_body_entered"]
+[connection signal="depositou_lixo" from="lata_de_lixo2" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo3" to="lata_de_lixo3" method="_on_body_entered"]
+[connection signal="depositou_lixo" from="lata_de_lixo3" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo4" to="lata_de_lixo4" method="_on_body_entered"]
+[connection signal="depositou_lixo" from="lata_de_lixo4" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo5" to="lata_de_lixo5" method="_on_body_entered"]
+[connection signal="depositou_lixo" from="lata_de_lixo5" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="item_activated" from="CanvasLayer/Control/ItemList" to="CanvasLayer/Control" method="_on_item_list_item_activated"]
