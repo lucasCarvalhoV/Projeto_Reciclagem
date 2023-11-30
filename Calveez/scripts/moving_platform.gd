@@ -1,6 +1,6 @@
 extends Node2D
 
-const WAIT = 1.0
+const WAIT = 2.0
 @onready var platform = $AnimatableBody2D as AnimatableBody2D
 @export var mov_speed = 5.0
 @export var distance = 192

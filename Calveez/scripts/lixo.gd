@@ -2,9 +2,13 @@ extends Area2D
 #@export var cor = "Vermelho"  # Exemplo: vermelho
 var tipo_lixo = null
 var cores = ["vermelho", "azul", "verde", "amarelo"]
+var glass_trash = preload("res://sprites/glass_trash.png")
+var paper_trash = preload("res://sprites/paper_trash.png")
+var plastic_trash = preload("res://sprites/plastic_trash.png")
+var metal_trash = preload("res://sprites/metal_trash.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	var cor = _get_color()
 	var tipo = _get_lixo(cor)
 	tipo_lixo = {"Cor": cor, "Tipo":tipo}
@@ -35,19 +39,19 @@ func _get_color():
 	var randomValue = cores[randomIndex]
 	return randomValue
 
-func _get_lixo(cor):
-	var tipos_lixo = [];
-	
+func _get_lixo(cor):	
+	$Sprite2D.scale.x = 0.06
+	$Sprite2D.scale.y = 0.06
 	if(cor == "vermelho"):
-		tipos_lixo = ["Garrafa de Plástico", "Copo Descartável"]
+		$Sprite2D.texture = plastic_trash
+		return "Garrafa de Plástico"
 	elif(cor == "azul"):
-		tipos_lixo = ["Papel Amassado", "Sacola de Papel"]
+		$Sprite2D.texture = paper_trash
+		return "Papel Amassado"
 	elif(cor == "verde"):
-		tipos_lixo = ["Garrafa Quebrada"]
+		$Sprite2D.texture = glass_trash
+		return "Garrafa Quebrada"
 	elif(cor == "amarelo"):
-		tipos_lixo = ["Latinha"]
-	
-	var randomIndex = randi() % tipos_lixo.size()
-	var randomValue = tipos_lixo[randomIndex]
-	return randomValue
+		$Sprite2D.texture = metal_trash
+		return "Latinha"
 
