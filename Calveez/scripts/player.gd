@@ -35,9 +35,13 @@ func _physics_process(delta):
 	elif is_jumping:
 		anim.play("jump")
 	else:
+		anim.play("stopped")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.stop()
 
 	move_and_slide()
 	
 	
+
+func _fall_in_void():
+	Globals.respawn_player_to_start()

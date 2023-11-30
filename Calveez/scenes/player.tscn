@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://e1b438t6jpc"]
+[gd_scene load_steps=12 format=3 uid="uid://e1b438t6jpc"]
 
-[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_mvi6h"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_m64pa"]
 [ext_resource type="Texture2D" uid="uid://dhq31ao2wai3r" path="res://sprites/Garoto_animaçao-removebg-preview_editado.png" id="2_yasix"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbprb"]
@@ -16,6 +16,10 @@ region = Rect2(249, 326, 83, 163)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4gkk"]
 atlas = ExtResource("2_yasix")
 region = Rect2(332, 326, 83, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjyvx"]
+atlas = ExtResource("2_yasix")
+region = Rect2(415, 326, 83, 163)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1g1lt"]
 atlas = ExtResource("2_yasix")
@@ -47,6 +51,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gjyvx")
+}],
+"loop": true,
+"name": &"stopped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1g1lt")
 }, {
 "duration": 1.0,
@@ -57,13 +69,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 6.0
+"speed": 5.0
 }]
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-2, -14)
 collision_mask = 2
-script = ExtResource("1_mvi6h")
+script = ExtResource("1_m64pa")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,11 +85,11 @@ shape = SubResource("CapsuleShape2D_vbprb")
 position = Vector2(0, 15)
 target_position = Vector2(0, 5)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
 limit_left = 0
-limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
+drag_left_margin = 0.5
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -85,3 +97,5 @@ editor_draw_drag_margin = true
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_a0tob")
 animation = &"walk"
+frame = 2
+frame_progress = 0.800785
