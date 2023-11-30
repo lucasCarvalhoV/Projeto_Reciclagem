@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://e1b438t6jpc"]
 
-[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_mvi6h"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_4yvpg"]
 [ext_resource type="Texture2D" uid="uid://dhq31ao2wai3r" path="res://sprites/Garoto_animaçao-removebg-preview_editado.png" id="2_yasix"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbprb"]
@@ -63,7 +63,7 @@ animations = [{
 [node name="player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-2, -14)
 collision_mask = 2
-script = ExtResource("1_mvi6h")
+script = ExtResource("1_4yvpg")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,9 +73,8 @@ shape = SubResource("CapsuleShape2D_vbprb")
 position = Vector2(0, 15)
 target_position = Vector2(0, 5)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
 limit_left = 0
-limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 editor_draw_limits = true

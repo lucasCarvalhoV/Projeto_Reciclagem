@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Reciclagem"
+config/name="Recycler Rush"
 run/main_scene="res://scenes/Principal.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://scripts/singleton/Globals.gd"
 
 [display]
 

@@ -43,3 +43,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
+
+func fall_in_void():
+	Globals.respawn_player_to_start()
