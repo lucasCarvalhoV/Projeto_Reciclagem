@@ -5,11 +5,6 @@ signal depositou_lixo(body,area)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process(true)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	if(color == "vermelho"):
 		$Sprite2D.frame = 0
 	elif(color == "verde"):
@@ -18,6 +13,19 @@ func _process(delta):
 		$Sprite2D.frame = 2
 	elif(color == "azul"):
 		$Sprite2D.frame = 3
+	elif (color == "random"):
+		$Sprite2D.frame = _get_color();
+	pass # Replace with function body.
+
+func _get_color():
+	var cores = [0, 1, 2, 3]
+	var randomIndex = randi() % cores.size()
+	var randomValue = cores[randomIndex]
+	return randomValue
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass;
 
 
 func _on_input_event(viewport, event, shape_idx):

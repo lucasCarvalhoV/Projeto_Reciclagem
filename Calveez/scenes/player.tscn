@@ -17,10 +17,6 @@ region = Rect2(249, 326, 83, 163)
 atlas = ExtResource("2_yasix")
 region = Rect2(332, 326, 83, 163)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1g1lt"]
-atlas = ExtResource("2_yasix")
-region = Rect2(83, 0, 83, 163)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lgmv"]
 atlas = ExtResource("2_yasix")
 region = Rect2(166, 0, 83, 163)
@@ -28,6 +24,10 @@ region = Rect2(166, 0, 83, 163)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ex7k6"]
 atlas = ExtResource("2_yasix")
 region = Rect2(249, 0, 83, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g1lt"]
+atlas = ExtResource("2_yasix")
+region = Rect2(83, 0, 83, 163)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a0tob"]
 animations = [{
@@ -47,13 +47,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1g1lt")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_0lgmv")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ex7k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g1lt")
 }],
 "loop": true,
 "name": &"walk",
@@ -85,3 +85,5 @@ editor_draw_drag_margin = true
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_a0tob")
 animation = &"walk"
+frame = 2
+frame_progress = 0.689052

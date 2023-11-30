@@ -35,3 +35,4 @@ func _on_item_list_item_activated(index):
 		print("Lata de Lixo Errada")
 	$ItemList.remove_item(index)
 	player.collectedGarbage.remove_at(index);
+	cor_lixos.remove_at(index);

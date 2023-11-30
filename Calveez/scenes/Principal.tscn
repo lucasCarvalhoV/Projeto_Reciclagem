@@ -1252,19 +1252,15 @@ move_horizontal = false
 
 [node name="lixo" parent="." instance=ExtResource("4_1ct73")]
 position = Vector2(210, 502)
-cor = "azul"
 
 [node name="lixo2" parent="." instance=ExtResource("4_1ct73")]
 position = Vector2(292, 503)
-cor = "vermelho"
 
 [node name="lixo3" parent="." instance=ExtResource("4_1ct73")]
 position = Vector2(343, 502)
-cor = "verde"
 
 [node name="lixo4" parent="." instance=ExtResource("4_1ct73")]
 position = Vector2(401, 503)
-cor = "amarelo"
 
 [node name="Moving_platform2" parent="." instance=ExtResource("3_hfk1n")]
 position = Vector2(227, 229)
@@ -1286,10 +1282,10 @@ color = "amarelo"
 
 [node name="lata_de_lixo5" parent="." instance=ExtResource("5_lx1g7")]
 position = Vector2(65, 164)
-color = "amarelo"
+color = "random"
 
 [node name="player" parent="." instance=ExtResource("2_djorh")]
-position = Vector2(182, 494)
+position = Vector2(131, 494)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
