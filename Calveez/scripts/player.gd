@@ -45,4 +45,6 @@ func _physics_process(delta):
 	
 
 func fall_in_void():
+	Globals.decrease_health()
 	Globals.respawn_player_to_start()
+	

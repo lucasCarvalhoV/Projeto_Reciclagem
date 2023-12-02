@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b40orsxryatls"]
+[gd_scene load_steps=13 format=3 uid="uid://b40orsxryatls"]
 
 [ext_resource type="Texture2D" uid="uid://bc4hfs7d7adhd" path="res://sprites/arcade.png" id="1_c735a"]
 [ext_resource type="Script" path="res://scripts/Principal.gd" id="1_oakaa"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c5i332sv7vcrh" path="res://scenes/lata_de_lixo.tscn" id="5_lx1g7"]
 [ext_resource type="Script" path="res://scripts/Control.gd" id="6_eamem"]
 [ext_resource type="Script" path="res://scripts/limbo_area.gd" id="8_6iv0d"]
+[ext_resource type="PackedScene" uid="uid://dn7ndqbihcdct" path="res://scenes/GUI.tscn" id="8_xa04b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xalt3"]
 texture = ExtResource("1_c735a")
@@ -1294,9 +1295,9 @@ color = "random"
 [node name="player" parent="." instance=ExtResource("2_djorh")]
 position = Vector2(131, 494)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="HUD"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -1306,12 +1307,18 @@ offset_right = 493.0
 offset_bottom = 180.0
 script = ExtResource("6_eamem")
 
-[node name="ItemList" type="ItemList" parent="CanvasLayer/Control"]
+[node name="ItemList" type="ItemList" parent="HUD/Control"]
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
+
+[node name="Vidas" parent="HUD" instance=ExtResource("8_xa04b")]
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 20.0
+offset_bottom = 14.0
 
 [node name="initial_position" type="Marker2D" parent="."]
 position = Vector2(131, 493)
@@ -1336,14 +1343,14 @@ position = Vector2(612, 509)
 [connection signal="body_entered" from="lixo3" to="lixo3" method="_on_body_entered"]
 [connection signal="body_entered" from="lixo4" to="lixo4" method="_on_body_entered"]
 [connection signal="body_entered" from="lata_de_lixo" to="lata_de_lixo" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo2" to="lata_de_lixo2" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo2" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo2" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo3" to="lata_de_lixo3" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo3" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo3" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo4" to="lata_de_lixo4" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo4" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo4" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo5" to="lata_de_lixo5" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo5" to="CanvasLayer/Control" method="_on_lata_de_lixo_depositou_lixo"]
-[connection signal="item_activated" from="CanvasLayer/Control/ItemList" to="CanvasLayer/Control" method="_on_item_list_item_activated"]
+[connection signal="depositou_lixo" from="lata_de_lixo5" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="item_activated" from="HUD/Control/ItemList" to="HUD/Control" method="_on_item_list_item_activated"]
 [connection signal="body_entered" from="limbo_area" to="limbo_area" method="_on_body_entered"]
