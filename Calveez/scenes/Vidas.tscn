@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Vidas.gd" id="1_y5p6l"]
 [ext_resource type="Texture2D" uid="uid://snydekcgyl48" path="res://sprites/Coracao.png" id="2_v3of1"]
 
-[node name="Control" type="Control"]
+[node name="Vidas" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,10 +14,10 @@ script = ExtResource("1_y5p6l")
 
 [node name="Contador" type="Label" parent="."]
 layout_mode = 0
-offset_left = 9.0
-offset_top = -4.0
-offset_right = 49.0
-offset_bottom = 22.0
+offset_left = 13.0
+offset_top = -3.0
+offset_right = 53.0
+offset_bottom = 23.0
 text = "4"
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -28,3 +28,10 @@ offset_right = 476.0
 offset_bottom = 493.0
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("2_v3of1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 11.0
+offset_bottom = 23.0
+text = "x"

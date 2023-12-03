@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b40orsxryatls"]
+[gd_scene load_steps=14 format=3 uid="uid://bp7iurduy0e46"]
 
 [ext_resource type="Texture2D" uid="uid://bc4hfs7d7adhd" path="res://sprites/arcade.png" id="1_c735a"]
 [ext_resource type="Script" path="res://scripts/Principal.gd" id="1_oakaa"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c5i332sv7vcrh" path="res://scenes/lata_de_lixo.tscn" id="5_lx1g7"]
 [ext_resource type="Script" path="res://scripts/Control.gd" id="6_eamem"]
 [ext_resource type="Script" path="res://scripts/limbo_area.gd" id="8_6iv0d"]
-[ext_resource type="PackedScene" uid="uid://dn7ndqbihcdct" path="res://scenes/GUI.tscn" id="8_xa04b"]
+[ext_resource type="PackedScene" uid="uid://dn7ndqbihcdct" path="res://scenes/Vidas.tscn" id="8_xa04b"]
+[ext_resource type="PackedScene" uid="uid://ovook1dj7bgt" path="res://scenes/points.tscn" id="9_ua14s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xalt3"]
 texture = ExtResource("1_c735a")
@@ -1281,7 +1282,7 @@ color = "azul"
 position = Vector2(808, 357)
 
 [node name="lata_de_lixo3" parent="." instance=ExtResource("5_lx1g7")]
-position = Vector2(377, 501)
+position = Vector2(380, 501)
 color = "verde"
 
 [node name="lata_de_lixo4" parent="." instance=ExtResource("5_lx1g7")]
@@ -1297,28 +1298,41 @@ position = Vector2(131, 494)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="HUD"]
+[node name="ContainerLixos" type="HBoxContainer" parent="HUD"]
+offset_left = 327.0
+offset_top = 52.0
+offset_right = 479.0
+offset_bottom = 202.0
+
+[node name="Control" type="Control" parent="HUD/ContainerLixos"]
 visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 343.0
-offset_top = 30.0
-offset_right = 493.0
-offset_bottom = 180.0
+layout_mode = 2
 script = ExtResource("6_eamem")
 
-[node name="ItemList" type="ItemList" parent="HUD/Control"]
+[node name="ItemList" type="ItemList" parent="HUD/ContainerLixos/Control"]
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
 
-[node name="Vidas" parent="HUD" instance=ExtResource("8_xa04b")]
-offset_left = 20.0
-offset_top = 14.0
-offset_right = 20.0
-offset_bottom = 14.0
+[node name="ContainerVida" type="HBoxContainer" parent="HUD"]
+offset_left = 35.0
+offset_top = 19.0
+offset_right = 75.0
+offset_bottom = 59.0
+
+[node name="Vidas" parent="HUD/ContainerVida" instance=ExtResource("8_xa04b")]
+layout_mode = 2
+
+[node name="ContainerPoints" type="HBoxContainer" parent="HUD"]
+offset_left = 450.0
+offset_top = 7.0
+offset_right = 490.0
+offset_bottom = 47.0
+
+[node name="Points" parent="HUD/ContainerPoints" instance=ExtResource("9_ua14s")]
+layout_mode = 2
 
 [node name="initial_position" type="Marker2D" parent="."]
 position = Vector2(131, 493)
@@ -1343,14 +1357,14 @@ position = Vector2(612, 509)
 [connection signal="body_entered" from="lixo3" to="lixo3" method="_on_body_entered"]
 [connection signal="body_entered" from="lixo4" to="lixo4" method="_on_body_entered"]
 [connection signal="body_entered" from="lata_de_lixo" to="lata_de_lixo" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo" to="HUD/ContainerLixos/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo2" to="lata_de_lixo2" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo2" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo2" to="HUD/ContainerLixos/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo3" to="lata_de_lixo3" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo3" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo3" to="HUD/ContainerLixos/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo4" to="lata_de_lixo4" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo4" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="depositou_lixo" from="lata_de_lixo4" to="HUD/ContainerLixos/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="body_entered" from="lata_de_lixo5" to="lata_de_lixo5" method="_on_body_entered"]
-[connection signal="depositou_lixo" from="lata_de_lixo5" to="HUD/Control" method="_on_lata_de_lixo_depositou_lixo"]
-[connection signal="item_activated" from="HUD/Control/ItemList" to="HUD/Control" method="_on_item_list_item_activated"]
+[connection signal="depositou_lixo" from="lata_de_lixo5" to="HUD/ContainerLixos/Control" method="_on_lata_de_lixo_depositou_lixo"]
+[connection signal="item_activated" from="HUD/ContainerLixos/Control/ItemList" to="HUD/ContainerLixos/Control" method="_on_item_list_item_activated"]
 [connection signal="body_entered" from="limbo_area" to="limbo_area" method="_on_body_entered"]
