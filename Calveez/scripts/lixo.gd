@@ -1,6 +1,7 @@
 extends Area2D
 #@export var cor = "Vermelho"  # Exemplo: vermelho
 var tipo_lixo = null
+var tipo = null
 var cores = ["vermelho", "azul", "verde", "amarelo"]
 var glass_trash = preload("res://sprites/glass_trash.png")
 var paper_trash = preload("res://sprites/paper_trash.png")
@@ -10,7 +11,7 @@ var metal_trash = preload("res://sprites/metal_trash.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var cor = _get_color()
-	var tipo = _get_lixo(cor)
+	tipo = _get_lixo(cor)
 	tipo_lixo = {"Cor": cor, "Tipo":tipo}
 	set_process(true)
 	pass # Replace with function body.
@@ -22,6 +23,7 @@ func _process(delta):
 
 func pick_garbage():
 	if visible == true:
+		Globals.picked_garbage(tipo)
 		print("pegou o lixo")
 		queue_free() #Coloca visible para false escondendo o nó
 

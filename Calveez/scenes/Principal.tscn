@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp7iurduy0e46"]
+[gd_scene load_steps=15 format=3 uid="uid://bp7iurduy0e46"]
 
 [ext_resource type="Texture2D" uid="uid://bc4hfs7d7adhd" path="res://sprites/arcade.png" id="1_c735a"]
 [ext_resource type="Script" path="res://scripts/Principal.gd" id="1_oakaa"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/limbo_area.gd" id="8_6iv0d"]
 [ext_resource type="PackedScene" uid="uid://dn7ndqbihcdct" path="res://scenes/Vidas.tscn" id="8_xa04b"]
 [ext_resource type="PackedScene" uid="uid://ovook1dj7bgt" path="res://scenes/points.tscn" id="9_ua14s"]
+[ext_resource type="PackedScene" uid="uid://df4sagqyagc0u" path="res://scenes/mensagem.tscn" id="10_0lwhi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xalt3"]
 texture = ExtResource("1_c735a")
@@ -1241,6 +1242,7 @@ size = Vector2(1324, 24)
 [node name="Principal" type="Node"]
 script = ExtResource("1_oakaa")
 metadata/_edit_vertical_guides_ = []
+metadata/_edit_horizontal_guides_ = [35.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hidmd")
@@ -1326,13 +1328,22 @@ offset_bottom = 59.0
 layout_mode = 2
 
 [node name="ContainerPoints" type="HBoxContainer" parent="HUD"]
-offset_left = 450.0
-offset_top = 7.0
-offset_right = 490.0
-offset_bottom = 47.0
+offset_left = 498.0
+offset_top = 15.0
+offset_right = 538.0
+offset_bottom = 55.0
 
 [node name="Points" parent="HUD/ContainerPoints" instance=ExtResource("9_ua14s")]
 layout_mode = 2
+
+[node name="CointainerMensagem" type="HBoxContainer" parent="HUD"]
+offset_left = -16.0
+offset_right = -16.0
+
+[node name="Mensagem" parent="HUD/CointainerMensagem" instance=ExtResource("10_0lwhi")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
 
 [node name="initial_position" type="Marker2D" parent="."]
 position = Vector2(131, 493)

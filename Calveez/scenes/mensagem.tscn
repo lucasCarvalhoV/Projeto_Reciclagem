@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://df4sagqyagc0u"]
+
+[ext_resource type="Script" path="res://scripts/mensagem.gd" id="1_obyq1"]
+
+[node name="Mensagem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_obyq1")
+metadata/_edit_horizontal_guides_ = [73.0]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MsgLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 595.0
+offset_bottom = 216.0
+text = "Você pegou "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
