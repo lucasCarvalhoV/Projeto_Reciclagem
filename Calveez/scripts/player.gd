@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -350.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping = false
 @onready var anim = $AnimatedSprite2D
+@onready var hurt = $Hurt
 
 var collectedGarbage = []
 
@@ -45,6 +46,7 @@ func _physics_process(delta):
 	
 
 func fall_in_void():
+	hurt.play()
 	Globals.decrease_health()
 	Globals.respawn_player_to_start()
 	
