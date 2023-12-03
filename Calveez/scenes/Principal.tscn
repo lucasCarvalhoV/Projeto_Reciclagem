@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=15 format=3 uid="uid://bp7iurduy0e46"]
-=======
-[gd_scene load_steps=16 format=3 uid="uid://bp7iurduy0e46"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://bc4hfs7d7adhd" path="res://sprites/arcade.png" id="1_c735a"]
 [ext_resource type="Script" path="res://scripts/Principal.gd" id="1_oakaa"]
@@ -12,14 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c5i332sv7vcrh" path="res://scenes/lata_de_lixo.tscn" id="5_lx1g7"]
 [ext_resource type="Script" path="res://scripts/Control.gd" id="6_eamem"]
 [ext_resource type="Script" path="res://scripts/limbo_area.gd" id="8_6iv0d"]
-[ext_resource type="AudioStream" uid="uid://cfken08uljq0d" path="res://sfx/right.mp3" id="8_w8g12"]
 [ext_resource type="PackedScene" uid="uid://dn7ndqbihcdct" path="res://scenes/Vidas.tscn" id="8_xa04b"]
 [ext_resource type="PackedScene" uid="uid://ovook1dj7bgt" path="res://scenes/points.tscn" id="9_ua14s"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://df4sagqyagc0u" path="res://scenes/mensagem.tscn" id="10_0lwhi"]
-=======
-[ext_resource type="AudioStream" uid="uid://w4gvg0u3ui8" path="res://sfx/wrong-2.mp3" id="9_xgj4d"]
->>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xalt3"]
 texture = ExtResource("1_c735a")
@@ -1326,12 +1317,6 @@ offset_right = 150.0
 offset_bottom = 150.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
-
-[node name="RightChoice" type="AudioStreamPlayer" parent="HUD/ContainerLixos/Control"]
-stream = ExtResource("8_w8g12")
-
-[node name="WrongChoice" type="AudioStreamPlayer" parent="HUD/ContainerLixos/Control"]
-stream = ExtResource("9_xgj4d")
 
 [node name="ContainerVida" type="HBoxContainer" parent="HUD"]
 offset_left = 35.0
