@@ -63,3 +63,4 @@ largar={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.407843, 0.717647, 1, 1)
