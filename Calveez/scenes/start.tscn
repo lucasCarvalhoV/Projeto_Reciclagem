@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7kaw5rqdwwwi"]
+
+[ext_resource type="Script" path="res://scripts/start.gd" id="1_lvrax"]
+
+[node name="start" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvrax")
+metadata/_edit_vertical_guides_ = [-2.0, 1.0]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -141.5
+offset_top = -125.0
+offset_right = 141.5
+offset_bottom = -59.0
+theme_override_font_sizes/font_size = 45
+text = "Recycle Rush"
+
+[node name="Início" type="Button" parent="."]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 30.0
+offset_bottom = -4.0
+text = "Início"
+
+[node name="Sair" type="Button" parent="."]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 9.0
+offset_right = 30.0
+offset_bottom = 40.0
+text = "Sair"
+
+[connection signal="pressed" from="Início" to="." method="_on_incio_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
