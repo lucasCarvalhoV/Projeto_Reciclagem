@@ -33,4 +33,4 @@ func move_platform():
 	# set_delay: tempo de atraso
 	platform_tween.tween_property(self,"follow",move_diretion,duration).set_delay(WAIT)
 	#movimento de volta
-	platform_tween.tween_property(self,"follow",Vector2.ZERO,duration).set_delay(duration + WAIT*2)
+	platform_tween.tween_property(self,"follow",Vector2.ZERO,duration).set_delay(duration + WAIT*1)

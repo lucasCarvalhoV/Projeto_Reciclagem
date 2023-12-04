@@ -25,7 +25,7 @@ func _get_color():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass;
+	pass
 
 
 func _on_input_event(viewport, event, shape_idx):

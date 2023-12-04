@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7easnkiuo4gk"]
+[gd_scene load_steps=18 format=3 uid="uid://c7easnkiuo4gk"]
 
 [ext_resource type="Texture2D" uid="uid://bc4hfs7d7adhd" path="res://sprites/arcade.png" id="1_c735a"]
 [ext_resource type="Script" path="res://scripts/Principal.gd" id="1_oakaa"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dr8w05ildb5ib" path="res://sfx/wrong-2.mp3" id="9_cox8r"]
 [ext_resource type="PackedScene" uid="uid://ovook1dj7bgt" path="res://scenes/points.tscn" id="9_ua14s"]
 [ext_resource type="PackedScene" uid="uid://df4sagqyagc0u" path="res://scenes/mensagem.tscn" id="10_0lwhi"]
+[ext_resource type="Script" path="res://scripts/Texto_Fim_de_Jogo.gd" id="13_w6hv8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xalt3"]
 texture = ExtResource("1_c735a")
@@ -1303,13 +1304,12 @@ position = Vector2(131, 494)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="ContainerLixos" type="HBoxContainer" parent="HUD"]
-offset_left = 327.0
-offset_top = 52.0
-offset_right = 479.0
-offset_bottom = 202.0
+offset_left = 405.0
+offset_top = 55.0
+offset_right = 405.0
+offset_bottom = 55.0
 
 [node name="Control" type="Control" parent="HUD/ContainerLixos"]
-visible = false
 layout_mode = 2
 script = ExtResource("6_eamem")
 
@@ -1349,9 +1349,46 @@ offset_left = -16.0
 offset_right = -16.0
 
 [node name="Mensagem" parent="HUD/CointainerMensagem" instance=ExtResource("10_0lwhi")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+process_mode = 3
+offset_left = 204.0
+offset_top = 55.0
+offset_right = 244.0
+offset_bottom = 95.0
+
+[node name="Fim_de_Jogo" type="Control" parent="HUD/VBoxContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_w6hv8")
+
+[node name="Resultado" type="Label" parent="HUD/VBoxContainer/Fim_de_Jogo"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 144.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 30
+text = "Resultado"
+horizontal_alignment = 1
+
+[node name="jogar_Novamente" type="Button" parent="HUD/VBoxContainer/Fim_de_Jogo"]
+layout_mode = 0
+offset_top = 59.0
+offset_right = 143.0
+offset_bottom = 90.0
+text = "Jogar Novamente"
+
+[node name="sair" type="Button" parent="HUD/VBoxContainer/Fim_de_Jogo"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 111.0
+offset_right = 89.0
+offset_bottom = 142.0
+text = "Sair"
 
 [node name="initial_position" type="Marker2D" parent="."]
 position = Vector2(131, 493)
@@ -1386,4 +1423,6 @@ position = Vector2(612, 509)
 [connection signal="body_entered" from="lata_de_lixo5" to="lata_de_lixo5" method="_on_body_entered"]
 [connection signal="depositou_lixo" from="lata_de_lixo5" to="HUD/ContainerLixos/Control" method="_on_lata_de_lixo_depositou_lixo"]
 [connection signal="item_activated" from="HUD/ContainerLixos/Control/ItemList" to="HUD/ContainerLixos/Control" method="_on_item_list_item_activated"]
+[connection signal="pressed" from="HUD/VBoxContainer/Fim_de_Jogo/jogar_Novamente" to="HUD/VBoxContainer/Fim_de_Jogo" method="_on_jogar_novamente_pressed"]
+[connection signal="pressed" from="HUD/VBoxContainer/Fim_de_Jogo/sair" to="HUD/VBoxContainer/Fim_de_Jogo" method="_on_sair_pressed"]
 [connection signal="body_entered" from="limbo_area" to="limbo_area" method="_on_body_entered"]

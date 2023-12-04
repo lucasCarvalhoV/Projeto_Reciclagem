@@ -42,3 +42,4 @@ func _on_item_list_item_activated(index):
 	$ItemList.remove_item(index)
 	player.collectedGarbage.remove_at(index);
 	cor_lixos.remove_at(index);
+

@@ -24,7 +24,7 @@ func _process(delta):
 func pick_garbage():
 	if visible == true:
 		Globals.picked_garbage(tipo)
-		print("pegou o lixo")
+#		print("pegou o lixo")
 		queue_free() #Coloca visible para false escondendo o nó
 
 func _on_body_entered(body):

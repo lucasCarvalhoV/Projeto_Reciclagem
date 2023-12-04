@@ -6,6 +6,9 @@ extends Node
 func _ready():
 	Globals.player = player
 	Globals.initial_position = player.position
+	Globals.health = 5
+	Globals.points = 0
+	get_tree().paused = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
