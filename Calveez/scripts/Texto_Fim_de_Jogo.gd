@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var death = $Death
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,11 +12,14 @@ func _process(delta):
 		show()
 		$Resultado.add_theme_color_override("font_color","Red")
 		$Resultado.text = "Game Over"
+		death.play()
 		get_tree().paused = true
-	elif(Globals.points == 30):
+	elif(Globals.points == 10):
 		show()
 		$Resultado.add_theme_color_override("font_color","Green")
 		$Resultado.text = "Vitória"
+		var lixeira = get_node("/root/Principal/HUD/ContainerLixos/Control")
+		lixeira.hide()
 		get_tree().paused = true
 
 
