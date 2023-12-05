@@ -1,10 +1,12 @@
 extends Control
 
 @onready var death = $Death
+@onready var vitoria = $Vitoria
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.death.connect(_death_player)
+	Globals.vitoria.connect(_vitoria_player)
 	pass # Replace with function body.
 
 
@@ -36,3 +38,6 @@ func _on_sair_pressed():
 	
 func _death_player():
 	death.play()
+	
+func _vitoria_player():
+	vitoria.play()

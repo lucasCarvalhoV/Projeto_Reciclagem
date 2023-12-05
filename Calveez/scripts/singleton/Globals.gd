@@ -6,6 +6,7 @@ var points = 0
 var initial_position = null
 var lixo_recolhido = null
 signal death
+signal vitoria
 
 func respawn_player_to_start():
 	player.position = initial_position
@@ -17,6 +18,8 @@ func decrease_health():
 	
 func increase_points():
 	points += 10
+	if(points == 30):
+		vitoria.emit()
 
 func picked_garbage(message):
 	lixo_recolhido = message

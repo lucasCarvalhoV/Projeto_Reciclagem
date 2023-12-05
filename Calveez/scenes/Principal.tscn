@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c7easnkiuo4gk"]
+[gd_scene load_steps=20 format=3 uid="uid://c7easnkiuo4gk"]
 
 [ext_resource type="Texture2D" uid="uid://bc4hfs7d7adhd" path="res://sprites/arcade.png" id="1_c735a"]
 [ext_resource type="Script" path="res://scripts/Principal.gd" id="1_oakaa"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://df4sagqyagc0u" path="res://scenes/mensagem.tscn" id="10_0lwhi"]
 [ext_resource type="Script" path="res://scripts/Texto_Fim_de_Jogo.gd" id="13_w6hv8"]
 [ext_resource type="AudioStream" uid="uid://bvdsbx2ds2q74" path="res://sfx/death-sound.mp3" id="14_t7cl0"]
+[ext_resource type="AudioStream" uid="uid://dt83hknx6dg55" path="res://sfx/final_fantasy_KDr5Pxg.mp3" id="15_40e3x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xalt3"]
 texture = ExtResource("1_c735a")
@@ -1393,6 +1394,9 @@ text = "Sair"
 
 [node name="Death" type="AudioStreamPlayer" parent="HUD/VBoxContainer/Fim_de_Jogo"]
 stream = ExtResource("14_t7cl0")
+
+[node name="Vitoria" type="AudioStreamPlayer" parent="HUD/VBoxContainer/Fim_de_Jogo"]
+stream = ExtResource("15_40e3x")
 
 [node name="initial_position" type="Marker2D" parent="."]
 position = Vector2(131, 493)
