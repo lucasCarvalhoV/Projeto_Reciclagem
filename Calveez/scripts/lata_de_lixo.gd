@@ -1,6 +1,6 @@
 extends Area2D
 @export var color = "vermelho"  # Exemplo: vermelho
-
+@onready var collected = $GarbageCollected
 signal depositou_lixo(body,area)
 # Called when the node enters the scene tree for the first time.
 func _ready():

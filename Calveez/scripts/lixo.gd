@@ -8,6 +8,8 @@ var paper_trash = preload("res://sprites/paper_trash.png")
 var plastic_trash = preload("res://sprites/plastic_trash.png")
 var metal_trash = preload("res://sprites/metal_trash.png")
 
+@onready var collected = $GarbageCollected
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var cor = _get_color()
@@ -30,6 +32,7 @@ func pick_garbage():
 func _on_body_entered(body):
 		if body.is_in_group("player"):
 			if body.collectedGarbage.size() < 6:
+				#collected.play()
 				body.collectedGarbage.append(tipo_lixo)
 				print(body.collectedGarbage)
 				pick_garbage()
