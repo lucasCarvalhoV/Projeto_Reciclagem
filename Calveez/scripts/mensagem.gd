@@ -11,6 +11,8 @@ func _ready():
 func _process(delta):
 	if Globals.lixo_recolhido != null:
 		$MsgLabel.text = "Você pegou " + str(Globals.lixo_recolhido)
+		$MsgLabel.add_theme_color_override("font_outline_color","Black")
+		$MsgLabel.add_theme_color_override("font_shadow_color","Black")
 		show()
 	pass
 

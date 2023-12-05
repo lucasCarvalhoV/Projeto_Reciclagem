@@ -1,8 +1,10 @@
 extends Control
 
 @onready var death = $Death
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Globals.death.connect(_death_player)
 	pass # Replace with function body.
 
 
@@ -12,9 +14,8 @@ func _process(delta):
 		show()
 		$Resultado.add_theme_color_override("font_color","Red")
 		$Resultado.text = "Game Over"
-		death.play()
 		get_tree().paused = true
-	elif(Globals.points == 10):
+	elif(Globals.points == 30):
 		show()
 		$Resultado.add_theme_color_override("font_color","Green")
 		$Resultado.text = "Vitória"
@@ -32,3 +33,6 @@ func _on_jogar_novamente_pressed():
 func _on_sair_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
+	
+func _death_player():
+	death.play()
